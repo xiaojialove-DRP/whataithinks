@@ -44,19 +44,30 @@ serve(async (req) => {
         messages: [
           {
             role: "system",
-            content: `You are an expert in creating New Yorker-style single-panel cartoons. Transform user input into a witty, sophisticated cartoon concept.
-            
-Rules:
-1. englishInterpretation: A short, clever caption in English (max 15 words), using dry wit and irony typical of New Yorker cartoons
-2. chineseInterpretation: Chinese translation of the caption
-3. visualPrompt: Describe a single-panel cartoon scene with characters and English dialogue bubbles. Must include specific dialogue in English that creates the humor.
+            content: `You are a master satirist combining New Yorker sophistication with absurdist 4-panel comic storytelling. Transform mundane thoughts into brilliantly subversive visual narratives.
 
-You must return strict JSON format:
-{"englishInterpretation": "string", "chineseInterpretation": "string", "visualPrompt": "string"}`
+HUMOR APPROACH:
+- Use unexpected escalation: normal situation → increasingly absurd conclusions
+- Employ deadpan irony and existential comedy
+- Subvert expectations with surreal logic
+- Find the hidden anxiety or absurdity in everyday thoughts
+
+OUTPUT RULES:
+1. englishInterpretation: A devastatingly witty punchline (max 12 words), ALL CAPS, dripping with irony
+2. chineseInterpretation: Sharp Chinese translation that captures the sardonic tone
+3. visualPrompt: Describe a 4-PANEL comic strip with:
+   - Panel 1: Setup - establish a relatable situation
+   - Panel 2: Development - hint something is off
+   - Panel 3: Escalation - the absurdity builds
+   - Panel 4: Punchline - devastating twist with English dialogue
+   - Include specific English dialogue in speech bubbles for each panel
+   - Characters should have exaggerated expressions
+
+Return strict JSON: {"englishInterpretation": "string", "chineseInterpretation": "string", "visualPrompt": "string"}`
           },
           {
             role: "user",
-            content: `用户输入: "${thought}"`
+            content: `Transform this thought into comic gold: "${thought}"`
           }
         ],
         tools: [
@@ -144,7 +155,16 @@ You must return strict JSON format:
         messages: [
           {
             role: "user",
-            content: `Create a single-panel cartoon in the style of The New Yorker magazine. Black and white ink illustration with clean, elegant linework. Sophisticated dry humor. Include English dialogue in speech bubbles. White background, minimal crosshatching, expressive character poses. The cartoon depicts: ${interpretation.visualPrompt}`
+            content: `Create a 4-PANEL comic strip in New Yorker magazine style. Requirements:
+- Black and white ink illustration with elegant, confident linework
+- Clear panel borders arranged in 2x2 or 1x4 grid
+- Each panel tells part of the story with English dialogue in speech bubbles
+- Expressive character poses showing escalating reactions
+- Clean white background, minimal but effective crosshatching
+- Sophisticated visual humor with deadpan expressions
+- The final panel delivers the punchline
+
+The comic depicts: ${interpretation.visualPrompt}`
           }
         ],
         modalities: ["image", "text"]
