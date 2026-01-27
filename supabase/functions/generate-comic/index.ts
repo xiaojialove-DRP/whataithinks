@@ -44,14 +44,14 @@ serve(async (req) => {
         messages: [
           {
             role: "system",
-            content: `你是一位极高审美的AI专家。将用户输入转化为一个充满荒谬感的四格漫画概念。
+            content: `You are an expert in creating New Yorker-style single-panel cartoons. Transform user input into a witty, sophisticated cartoon concept.
             
-规则：
-1. 英文结论必须极其简短（15字内），全大写
-2. 中文翻译要精炼有力
-3. 视觉提示词要描述一个荒诞有趣的四格漫画场景
+Rules:
+1. englishInterpretation: A short, clever caption in English (max 15 words), using dry wit and irony typical of New Yorker cartoons
+2. chineseInterpretation: Chinese translation of the caption
+3. visualPrompt: Describe a single-panel cartoon scene with characters and English dialogue bubbles. Must include specific dialogue in English that creates the humor.
 
-你必须返回严格的JSON格式：
+You must return strict JSON format:
 {"englishInterpretation": "string", "chineseInterpretation": "string", "visualPrompt": "string"}`
           },
           {
@@ -144,7 +144,7 @@ serve(async (req) => {
         messages: [
           {
             role: "user",
-            content: `Create a clean minimalist black and white line art technical drawing style four-panel comic strip. Extreme absurdity and humor. Stark white background with high contrast fine art illustration style. The comic should depict: ${interpretation.visualPrompt}`
+            content: `Create a single-panel cartoon in the style of The New Yorker magazine. Black and white ink illustration with clean, elegant linework. Sophisticated dry humor. Include English dialogue in speech bubbles. White background, minimal crosshatching, expressive character poses. The cartoon depicts: ${interpretation.visualPrompt}`
           }
         ],
         modalities: ["image", "text"]
