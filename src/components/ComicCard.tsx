@@ -48,9 +48,9 @@ export const ComicCard = ({ item }: ComicCardProps) => {
       </div>
 
       <div style="width: 100%; background-color: #FFFFFF; padding: 40px; display: flex; flex-direction: column;">
-        <div style="width: 100%; aspect-ratio: 1/1; overflow: hidden; border: 1px solid #000; background-color: #FFFFFF; position: relative;">
-          <div style="position: absolute; inset: 0; pointer-events: none; z-index: 5; background-image: linear-gradient(rgba(0,0,0,0.03) 50%, transparent 50%), linear-gradient(90deg, rgba(0,0,0,0.01), rgba(0,0,255,0.01)); background-size: 100% 3px, 3px 100%;"></div>
-          ${item.imageUrl ? `<img src="${item.imageUrl}" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.15); display: block;">` : '<div style="width: 100%; height: 100%; background: #f0f0f0;"></div>'}
+          <div style="width: 100%; overflow: hidden; border: 1px solid #000; background-color: #FFFFFF; position: relative;">
+            <div style="position: absolute; inset: 0; pointer-events: none; z-index: 5; background-image: linear-gradient(rgba(0,0,0,0.03) 50%, transparent 50%), linear-gradient(90deg, rgba(0,0,0,0.01), rgba(0,0,255,0.01)); background-size: 100% 3px, 3px 100%;"></div>
+            ${item.imageUrl ? `<img src="${item.imageUrl}" style="width: 100%; height: auto; object-fit: contain; filter: grayscale(1) contrast(1.15); display: block;">` : '<div style="width: 100%; height: 400px; background: #f0f0f0;"></div>'}
         </div>
       </div>
 
@@ -102,17 +102,17 @@ export const ComicCard = ({ item }: ComicCardProps) => {
         </div>
 
         {/* Comic Area */}
-        <div className="w-full aspect-square bg-white p-3 sm:p-6 flex flex-col">
-          <div className="flex-1 relative overflow-hidden border border-black/10">
+        <div className="w-full bg-white p-3 sm:p-6 flex flex-col">
+          <div className="relative overflow-hidden border border-black/10">
             <div className="scanlines" />
             {item.imageUrl ? (
               <img 
                 src={item.imageUrl} 
-                className="w-full h-full object-cover grayscale contrast-125" 
+                className="w-full h-auto object-contain grayscale contrast-125" 
                 alt="AI Comic" 
               />
             ) : (
-              <div className="w-full h-full flex items-center justify-center bg-gray-50">
+              <div className="w-full aspect-square flex items-center justify-center bg-gray-50">
                 <div className="w-12 h-12 border border-black/10 rotate-45 animate-pulse" />
               </div>
             )}
