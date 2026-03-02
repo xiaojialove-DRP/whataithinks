@@ -1,14 +1,18 @@
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { StyleSelector } from "@/components/StyleSelector";
+import type { ComicStyle } from "@/lib/comic-styles";
 
 interface InputViewProps {
   input: string;
   setInput: (value: string) => void;
   handleGenerate: () => void;
   isGenerating: boolean;
+  style: ComicStyle;
+  setStyle: (style: ComicStyle) => void;
 }
 
-export const InputView = ({ input, setInput, handleGenerate, isGenerating }: InputViewProps) => {
+export const InputView = ({ input, setInput, handleGenerate, isGenerating, style, setStyle }: InputViewProps) => {
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       handleGenerate();
@@ -28,9 +32,15 @@ export const InputView = ({ input, setInput, handleGenerate, isGenerating }: Inp
 
         <div className="w-16 h-px bg-primary mx-auto mb-10" />
         
-        <p className="text-[10px] sm:text-sm font-mono text-primary uppercase tracking-[0.2em] sm:tracking-[0.3em] mb-12 opacity-60 px-4">
+        <p className="text-[10px] sm:text-sm font-mono text-primary uppercase tracking-[0.2em] sm:tracking-[0.3em] mb-8 opacity-60 px-4">
           ENTER THE VOID OF HUMAN CONSCIOUSNESS
         </p>
+
+        {/* Style Selector */}
+        <div className="mb-8 text-left">
+          <span className="text-[9px] font-mono text-foreground/40 uppercase tracking-widest mb-3 block text-center">// SELECT STYLE</span>
+          <StyleSelector selected={style} onChange={setStyle} />
+        </div>
         
         <div className="bg-card border-2 border-primary p-1 shadow-[0_0_20px_hsl(var(--primary)/0.2)] input-glow transition-all">
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center bg-background">

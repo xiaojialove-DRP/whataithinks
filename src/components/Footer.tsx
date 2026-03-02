@@ -1,14 +1,18 @@
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { StyleSelector } from "@/components/StyleSelector";
+import type { ComicStyle } from "@/lib/comic-styles";
 
 interface FooterProps {
   input: string;
   setInput: (value: string) => void;
   handleGenerate: () => void;
   isGenerating: boolean;
+  style: ComicStyle;
+  setStyle: (style: ComicStyle) => void;
 }
 
-export const Footer = ({ input, setInput, handleGenerate, isGenerating }: FooterProps) => {
+export const Footer = ({ input, setInput, handleGenerate, isGenerating, style, setStyle }: FooterProps) => {
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       handleGenerate();
@@ -17,7 +21,8 @@ export const Footer = ({ input, setInput, handleGenerate, isGenerating }: Footer
 
   return (
     <footer className="fixed bottom-0 left-0 w-full p-4 sm:p-8 z-50 border-t border-border bg-background/95 backdrop-blur-xl">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto space-y-3">
+        <StyleSelector selected={style} onChange={setStyle} compact />
         <div className="bg-card border border-primary/30 p-1 flex flex-col sm:flex-row items-stretch sm:items-center shadow-2xl">
           <Input
             type="text"

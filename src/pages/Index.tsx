@@ -7,6 +7,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { LoadingOverlay } from "@/components/LoadingOverlay";
 import { ComicEntry } from "@/components/ComicCard";
+import type { ComicStyle } from "@/lib/comic-styles";
 
 type PageType = 'INPUT' | 'HISTORY';
 
@@ -15,6 +16,7 @@ const Index = () => {
   const [isGenerating, setIsGenerating] = useState(false);
   const [history, setHistory] = useState<ComicEntry[]>([]);
   const [currentPage, setCurrentPage] = useState<PageType>('INPUT');
+  const [style, setStyle] = useState<ComicStyle>('newyorker');
 
   const handleGenerate = async () => {
     if (!input.trim()) {
@@ -26,7 +28,7 @@ const Index = () => {
 
     try {
       const { data, error } = await supabase.functions.invoke('generate-comic', {
-        body: { thought: input.trim() }
+        body: { thought: input.trim(), style }
       });
 
       if (error) {
@@ -64,7 +66,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
-      {/* Grid overlay */}
       <div className="fixed inset-0 grid-overlay pointer-events-none" />
 
       {currentPage === 'INPUT' ? (
@@ -73,6 +74,8 @@ const Index = () => {
           setInput={setInput}
           handleGenerate={handleGenerate}
           isGenerating={isGenerating}
+          style={style}
+          setStyle={setStyle}
         />
       ) : (
         <>
@@ -83,6 +86,8 @@ const Index = () => {
             setInput={setInput}
             handleGenerate={handleGenerate}
             isGenerating={isGenerating}
+            style={style}
+            setStyle={setStyle}
           />
         </>
       )}
