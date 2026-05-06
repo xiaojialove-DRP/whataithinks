@@ -1,73 +1,55 @@
-# Welcome to your Lovable project
+# WHAT AI THINKS
 
-## Project info
+**AI knows what you really mean.**  
+Turn any thought, feeling, question, or meme into a witty comic with AI interpretation.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+A fun **vibe-coding** experiment.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🎯 What is this?
 
-**Use Lovable**
+Input any idea → Choose a cartoon style → AI generates a comic image + bilingual insight.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+**Tagline**: *Enter the void of human consciousness*
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 🎨 Available Styles
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+| Style       | Name         | Vibe                              |
+|-------------|--------------|-----------------------------------|
+| 🗞️         | **New Yorker**  | Sophisticated satire & dry humor |
+| 🇯🇵         | **Japanese**    | Warm, wholesome daily life       |
+| 📰         | **Political**   | Sharp & exaggerated satire       |
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 🚀 Try it Now
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- **Lovable Version** → *（待补充你的链接）*
+- **Gemini Version** → [Try here](https://gemini.google.com/share/2da4c94d7937)
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 📸 Screenshots
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+![What AI Thinks Demo](images/demo.png)
 
-**Edit a file directly in GitHub**
+![New Yorker Style Example](images/example-newyorker.png)
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+![Japanese Style Example](images/example-japanese.png)
 
-**Use GitHub Codespaces**
+---
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🛠 Tech Stack
 
-## What technologies are used for this project?
+- Frontend: React + TypeScript + Vite + Tailwind + shadcn/ui
+- Backend: Supabase Edge Functions
+- State Management: TanStack Query
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+**Made with vibes & AI** ✨
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Star ⭐ if you like it!
